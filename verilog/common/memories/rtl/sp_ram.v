@@ -5,4 +5,6 @@ module sp_ram (
   
 );
 
+// read logic here
+
 endmodule : sp_ram
