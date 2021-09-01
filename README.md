@@ -6,6 +6,6 @@ Some Hardware Projects and common design blocks are implemented!
 |____verilog
 |____vhdl
 |____uvm
-|___sv
-____hls
-____scripting
+|____sv
+|____hls
+|____scripting
