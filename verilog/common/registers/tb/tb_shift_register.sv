@@ -1,3 +1,16 @@
+//-----------------------------------------------------------------------------------------
+//
+// Filename     		: tb_shift_register.sv
+// Author     			: Aamir Soahil Nagra
+// Creation Date    : 08/03/2022
+//  Description 
+//  =========== 
+// Self-Testing system verilog testbench for shift register module. It has support for both
+// left and right shift operation. Reset is asserted for 5 clock cycles. After that sim_gen
+// task is called which generates the data and also accumulate serial data into a register 
+// which is later used for checker task. 
+//-----------------------------------------------------------------------------------------
+
 module tb_shift_register ();
 // parameters here
 	localparam CLK_PRD   = 10;
@@ -73,8 +86,8 @@ module tb_shift_register ();
 	endtask : sim_gen
 
 // checker
-task sim_checker();
-	$display("checker");
+	task sim_checker();
+		$display("checker");
 		if (o_rcv_data == i_reg_data) begin
 			$display("************************************************");
 			$display("Test Pass");
@@ -86,8 +99,8 @@ task sim_checker();
 			$display("Test Failed");
 			$display("Expected Value= %h Received value= %h", i_reg_data, o_rcv_data);
 			$display("************************************************");
-		end	
-endtask : sim_checker
+		end
+	endtask : sim_checker
 
 
 

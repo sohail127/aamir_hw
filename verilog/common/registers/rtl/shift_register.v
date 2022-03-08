@@ -1,3 +1,15 @@
+//-----------------------------------------------------------------------------------------
+//
+// Filename     		: shift_register.v
+// Author     			: Aamir Soahil Nagra
+// Creation Date    : 08/03/2022
+//  Description 
+//  =========== 
+//  Verilog Implementation of Paramterize shift register. Its provided with an control
+//  for both left and right shift oepration. Cancatenation operation is used for shifting
+//  left and right. A counter is also implemented to keep the shift counting value. It only
+//  takes value when o_busy is down.  
+//-----------------------------------------------------------------------------------------
 module shift_register #(parameter BUS_WIDTH=32) (
 	input                  clk       , // clock
 	input                  rst_n     , // active low reset
@@ -69,7 +81,8 @@ module shift_register #(parameter BUS_WIDTH=32) (
 			end
 		end
 	end
-
+	
+	// output assignment
 	assign o_busy  = reg_o_busy  ;
 	assign o_valid = reg_o_valid ;
 	assign o_shift = reg_o_shift ;
