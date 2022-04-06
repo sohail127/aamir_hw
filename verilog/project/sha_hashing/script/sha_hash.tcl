@@ -53,7 +53,8 @@
 	cd 	 $PROJ_NAME
 ## 2. Crear Project with board selection
 	# set PART_NUMB xc7z020clg400-1
-	set PART_NUMB xc7a200tfbg676-2
+	# set PART_NUMB xc7a200tfbg676-2
+	set PART_NUMB xc7k325tffg900-2
 	create_project $PROJ_NAME "$WORK_DIR" -part $PART_NUMB -force
 ## 3. Add files,  rtl , tb and constraints files
 	add_files -fileset sources_1 [glob "${WORK_DIR}/../../rtl/*.v"] 
@@ -72,7 +73,7 @@
 	write_verilog -force 						../../synth/${PROJ_NAME}_post_synth_netlist.v -mode timesim -sdf_anno true
 	write_sdf 							 -force	../../sdf/${PROJ_NAME}_post_synth.sdf
 
-# ##  5. run logic optimization,placement
+##  5. run logic optimization,placement
 # 	opt_design
 # 	# reportCriticalPaths 		../../${PROJ_NAME}_impl_rpt/post_opt_critpath_report.csv
 # 	#placement
@@ -94,8 +95,8 @@
 # ## Generate Bitstream
 # 	# write_bitstream -force 					../../bit_stream/${PROJ_NAME}.bit
 
-	close_project
-	cd ../${WORK_DIR}
+	# close_project
+	# cd ../${WORK_DIR}
 
 
 
