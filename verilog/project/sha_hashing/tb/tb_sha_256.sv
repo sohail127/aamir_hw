@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-module sha_256_tb ();
+module tb_sha_256 ();
 
 //--********************************************--//
 	parameter  BLK_CNT   = 6  ;
@@ -8,7 +8,7 @@ module sha_256_tb ();
 	parameter  MAX_CNT   = 63 ;
 	parameter  HASH_SIZE = 256;
 	localparam CLK_PRD   = 20 ;
-	integer 	 ii 			 = 0 	;
+	integer    ii        = 0  ;
 //--******************************************--//
 	reg                  usr_clk    ;
 	reg                  usr_reset_n;
@@ -18,13 +18,14 @@ module sha_256_tb ();
 	wire [HASH_SIZE-1:0] o_hash     ;
 
 
-	sha_256 #(
-/*		.BLK_CNT  (BLK_CNT  ),
+	sha_256 /*#(
+		.BLK_CNT  (BLK_CNT  ),
 		.MSG_SIZ  (MSG_SIZ  ),
 		.MSG_BLK  (MSG_BLK  ),
 		.MAX_CNT  (MAX_CNT  ),
-		.HASH_SIZE(HASH_SIZE)*/
-	) DUT (
+		.HASH_SIZE(HASH_SIZE)
+	)*/
+	 DUT (
 		.usr_clk    (usr_clk    ), // system clock signal
 		.usr_reset_n(usr_reset_n), // system global reset_n active low logic
 		.i_start    (i_start    ), // To start calculating hash just as enable
@@ -39,34 +40,38 @@ module sha_256_tb ();
 
 // system reset task
 	task sys_rst();
-			usr_reset_n = 1'b0   ;
-			i_start   	= 1'b0   ;
-			i_msg     	= 512'h0 ;
-			ii 					= 0 		 ;
+		usr_reset_n = 1'b0   ;
+		i_start   	= 1'b0   ;
+		i_msg     	= 512'h0 ;
+		ii 					= 0 		 ;
 	endtask : sys_rst
 
 // initialize data
-task init_sys();
-	usr_reset_n = 1'b1 ;
-	i_start 		= 1'b1 ;
-	i_msg   		= 512'h61626380000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000018;
-endtask : init_sys
+	task init_sys();
+		usr_reset_n = 1'b1 ;
+		i_start 		= 1'b1 ;
+		i_msg   		= 512'h61626380000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000018;
+	endtask : init_sys
 //-- *********** Stimulus here ******************--//
-	initial
-		begin
-			repeat(5) begin
-				sys_rst();
-			end
-			@(posedge clk)
-			init_sys();
-			// wait for getting fisrt hash
-			forever begin
-				if(o_valid) begin
-					$display("First hash value is received as %h",o_hash);
-					break ;  
-				end
-				else
-					$display("systen busy at clock cycle"ii++,);
-			end 
+	initial begin
+		repeat(5) begin
+			sys_rst();
+			@(posedge usr_clk);
 		end
-endmodule // sha_256_tb	
+		@(posedge usr_clk)
+			init_sys();
+		// wait for getting fisrt hash
+		forever begin
+			if(o_valid) begin
+				$display("First hash value is received as %h",o_hash);
+				break ;
+			end
+			else begin
+				$display("systen busy at clock cycle %d", ii++,);
+			end
+			@(posedge usr_clk);
+		end
+		@(posedge usr_clk);
+		$stop();
+	end
+endmodule // tb_sha_256	
