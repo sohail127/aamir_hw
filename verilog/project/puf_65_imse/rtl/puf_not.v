@@ -18,5 +18,6 @@ module puf_not (
 	input  i_not,
 	output o_not
 );
-	not n1(o_not,i_not);
+	not  #1(o_not,i_not);
+	// not  n1(o_not,i_not);
 endmodule // puf_not

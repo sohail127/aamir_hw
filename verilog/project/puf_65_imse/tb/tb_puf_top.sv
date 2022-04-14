@@ -21,7 +21,7 @@ module tb_puf_top ();
 
 	parameter CNT_BIT_SIZE = 5  ; 
 	parameter CNT_SET      = 32 ;
-	parameter N_STAGE 		 = 3 	;
+	parameter N_STAGE 		 = 6 	;
 
 //********************************************************************************
 // ** Outputs are wire
@@ -57,6 +57,8 @@ puf_top #(
 //********************************************************************************
 task init_sys(); 
 	begin
+		i_en 	= 1'b0;
+		#10	
 		i_en 	= 1'b1;
 		$display("Reset is de asserted");
 		repeat (5) begin

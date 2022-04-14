@@ -16,7 +16,7 @@
 module puf_top #(
 	parameter CNT_BIT_SIZE = 5 ,
 	parameter CNT_SET      = 16,
-	parameter N_STAGE      = 5
+	parameter N_STAGE      = 6
 ) (
 	input                     i_en       ,
 	input                     rst_n      ,
