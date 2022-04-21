@@ -1,0 +1,8 @@
+#########################################################
+#### 		Simulation project file for counter
+#### 		Add all the src and tb files 
+#########################################################
+
+verilog xil_defaultlib "../../../../netlist/counter_synth_func_netlist.v" 
+verilog xil_defaultlib "../../../../tb/flag_counter_tb.v"
+verilog xil_defaultlib "$XILINX_VIVADO/data/verilog/src/glbl.v"
