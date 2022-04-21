@@ -1,0 +1,14 @@
+#########################################################
+#### 		Simulation project file for counter
+#### 		Add all the src and tb files 
+#########################################################
+verilog xil_defaultlib  "../../../rtl/sha_256.v"
+verilog xil_defaultlib  "../../../rtl/round_constant.v"
+verilog xil_defaultlib  "../../../rtl/message_schdule.v"
+verilog xil_defaultlib  "../../../rtl/round.v"
+verilog xil_defaultlib  "../../../rtl/counter.v"
+verilog xil_defaultlib  "../../../rtl/cu_sha.v"
+verilog xil_defaultlib  "../../../rtl/datapath.v"
+sv 			xil_defaultlib  "../../../tb/tb_sha_256.sv"
+verilog xil_defaultlib "$XILINX_VIVADO/data/verilog/src/glbl.v"
+

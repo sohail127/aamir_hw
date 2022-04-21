@@ -1,0 +1,8 @@
+#########################################################
+#### 		Simulation project file for counter
+#### 		Add all the src and tb files 
+#########################################################
+verilog xil_defaultlib  "../../../../synth/sha_hash_post_synth_func_netlist.v"
+sv 			xil_defaultlib  "../../../../tb/tb_sha_256.sv"
+verilog xil_defaultlib "$XILINX_VIVADO/data/verilog/src/glbl.v"
+

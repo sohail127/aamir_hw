@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="simulate_xsim.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_sha_256" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="248.853 ns"></ZoomEndTime>
+      <Cursor1Time time="225.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="276"></NameColumnWidth>
+      <ValueColumnWidth column_width="113"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="3" />
+   <wvobject type="group" fp_name="group2316">
+      <obj_property name="label">top</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/tb_sha_256/ii">
+         <obj_property name="ElementShortName">ii[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ii[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_sha_256/usr_clk">
+         <obj_property name="ElementShortName">usr_clk</obj_property>
+         <obj_property name="ObjectShortName">usr_clk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_sha_256/usr_reset_n">
+         <obj_property name="ElementShortName">usr_reset_n</obj_property>
+         <obj_property name="ObjectShortName">usr_reset_n</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_sha_256/i_start">
+         <obj_property name="ElementShortName">i_start</obj_property>
+         <obj_property name="ObjectShortName">i_start</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/i_msg">
+         <obj_property name="ElementShortName">i_msg[511:0]</obj_property>
+         <obj_property name="ObjectShortName">i_msg[511:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_sha_256/o_valid">
+         <obj_property name="ElementShortName">o_valid</obj_property>
+         <obj_property name="ObjectShortName">o_valid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/o_hash">
+         <obj_property name="ElementShortName">o_hash[255:0]</obj_property>
+         <obj_property name="ObjectShortName">o_hash[255:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/BLK_CNT">
+         <obj_property name="ElementShortName">BLK_CNT[31:0]</obj_property>
+         <obj_property name="ObjectShortName">BLK_CNT[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/MSG_SIZ">
+         <obj_property name="ElementShortName">MSG_SIZ[31:0]</obj_property>
+         <obj_property name="ObjectShortName">MSG_SIZ[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/MSG_BLK">
+         <obj_property name="ElementShortName">MSG_BLK[31:0]</obj_property>
+         <obj_property name="ObjectShortName">MSG_BLK[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/MAX_CNT">
+         <obj_property name="ElementShortName">MAX_CNT[31:0]</obj_property>
+         <obj_property name="ObjectShortName">MAX_CNT[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/HASH_SIZE">
+         <obj_property name="ElementShortName">HASH_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">HASH_SIZE[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/CLK_PRD">
+         <obj_property name="ElementShortName">CLK_PRD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">CLK_PRD[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group51">
+      <obj_property name="label">cu</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/tb_sha_256/DUT/cu/usr_clk">
+         <obj_property name="ElementShortName">usr_clk</obj_property>
+         <obj_property name="ObjectShortName">usr_clk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_sha_256/DUT/cu/usr_reset_n">
+         <obj_property name="ElementShortName">usr_reset_n</obj_property>
+         <obj_property name="ObjectShortName">usr_reset_n</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_sha_256/DUT/cu/i_start">
+         <obj_property name="ElementShortName">i_start</obj_property>
+         <obj_property name="ObjectShortName">i_start</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_sha_256/DUT/cu/i_cnt_flag">
+         <obj_property name="ElementShortName">i_cnt_flag</obj_property>
+         <obj_property name="ObjectShortName">i_cnt_flag</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_sha_256/DUT/cu/o_cnt_en">
+         <obj_property name="ElementShortName">o_cnt_en</obj_property>
+         <obj_property name="ObjectShortName">o_cnt_en</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_sha_256/DUT/cu/o_valid">
+         <obj_property name="ElementShortName">o_valid</obj_property>
+         <obj_property name="ObjectShortName">o_valid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_sha_256/DUT/cu/sel_1">
+         <obj_property name="ElementShortName">sel_1</obj_property>
+         <obj_property name="ObjectShortName">sel_1</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/cu/current_state">
+         <obj_property name="ElementShortName">current_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">current_state[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/cu/next_state">
+         <obj_property name="ElementShortName">next_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">next_state[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/cu/IDLE">
+         <obj_property name="ElementShortName">IDLE[1:0]</obj_property>
+         <obj_property name="ObjectShortName">IDLE[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/cu/RESET">
+         <obj_property name="ElementShortName">RESET[1:0]</obj_property>
+         <obj_property name="ObjectShortName">RESET[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/cu/BUSY">
+         <obj_property name="ElementShortName">BUSY[1:0]</obj_property>
+         <obj_property name="ObjectShortName">BUSY[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/cu/DONE">
+         <obj_property name="ElementShortName">DONE[1:0]</obj_property>
+         <obj_property name="ObjectShortName">DONE[1:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group1323">
+      <obj_property name="label">dp</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/tb_sha_256/DUT/dp/clk">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_sha_256/DUT/dp/reset_n">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_sha_256/DUT/dp/i_dp_en">
+         <obj_property name="ElementShortName">i_dp_en</obj_property>
+         <obj_property name="ObjectShortName">i_dp_en</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/dp/i_msg">
+         <obj_property name="ElementShortName">i_msg[511:0]</obj_property>
+         <obj_property name="ObjectShortName">i_msg[511:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/dp/round_count">
+         <obj_property name="ElementShortName">round_count[5:0]</obj_property>
+         <obj_property name="ObjectShortName">round_count[5:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_sha_256/DUT/dp/i_cnt_en">
+         <obj_property name="ElementShortName">i_cnt_en</obj_property>
+         <obj_property name="ObjectShortName">i_cnt_en</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_sha_256/DUT/dp/flag">
+         <obj_property name="ElementShortName">flag</obj_property>
+         <obj_property name="ObjectShortName">flag</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/dp/o_hash">
+         <obj_property name="ElementShortName">o_hash[255:0]</obj_property>
+         <obj_property name="ObjectShortName">o_hash[255:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/dp/o_round_constant">
+         <obj_property name="ElementShortName">o_round_constant[31:0]</obj_property>
+         <obj_property name="ObjectShortName">o_round_constant[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/dp/o_msg_blk">
+         <obj_property name="ElementShortName">o_msg_blk[31:0]</obj_property>
+         <obj_property name="ObjectShortName">o_msg_blk[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/dp/i_pre_blck_hash">
+         <obj_property name="ElementShortName">i_pre_blck_hash[255:0]</obj_property>
+         <obj_property name="ObjectShortName">i_pre_blck_hash[255:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/dp/BLK_CNT">
+         <obj_property name="ElementShortName">BLK_CNT[31:0]</obj_property>
+         <obj_property name="ObjectShortName">BLK_CNT[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/dp/MSG_SIZ">
+         <obj_property name="ElementShortName">MSG_SIZ[31:0]</obj_property>
+         <obj_property name="ObjectShortName">MSG_SIZ[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/dp/MSG_BLK">
+         <obj_property name="ElementShortName">MSG_BLK[31:0]</obj_property>
+         <obj_property name="ObjectShortName">MSG_BLK[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/dp/MAX_CNT">
+         <obj_property name="ElementShortName">MAX_CNT[31:0]</obj_property>
+         <obj_property name="ObjectShortName">MAX_CNT[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/dp/HASH_SIZE">
+         <obj_property name="ElementShortName">HASH_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">HASH_SIZE[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_sha_256/DUT/dp/IV">
+         <obj_property name="ElementShortName">IV[255:0]</obj_property>
+         <obj_property name="ObjectShortName">IV[255:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>
