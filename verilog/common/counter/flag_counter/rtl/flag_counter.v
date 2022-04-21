@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-module flag_counter (
+module flag_counter #(parameter N_BIT=5 ,  parameter DUMP=10) (
 	input      clk_p     ,
 	input      clk_n     ,
 	input      rst_n     ,
@@ -8,7 +8,7 @@ module flag_counter (
 );
 
 	//--***********************************************--//
-	reg [31:0] count;
+	reg [2**N_BIT-1:0] count;
 
 	//--**************************************************-//
 	wire sys_clk;
@@ -23,17 +23,15 @@ module flag_counter (
 		.IB(clk_n  )  // Diff_n clock buffer input (connect directly to top-level port)
 	);
 
-
-
-	always @(posedge sys_clk or posedge rst_n) begin : proc_flag_counter
+	always @(posedge sys_clk or posedge rst_n) begin
 		if(rst_n) begin
-			count      <= 32'd0;
+			count      <= {N_BIT{1'b0}};
 			flag_count <= 1'b0;
 		end
 		else begin
 			if (enable) begin
-				if(count==32'd1000) begin
-					count      <= 32'd0 ;
+				if(count==DUMP) begin
+					count      <= {N_BIT{1'b0}};
 					flag_count <= 1'b1;
 				end
 				else begin
@@ -42,10 +40,8 @@ module flag_counter (
 				end
 			end
 			else begin
-				count      <= 32'd0;
+				count      <= {N_BIT{1'b0}};;
 				flag_count <= 1'b0;
-			end
-
-		end
+			end	end
 	end
 endmodule

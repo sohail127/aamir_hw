@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module round_constant 
 	#(
 		parameter ADDR_WTH=6,

@@ -15,12 +15,12 @@
 		file mkdir $WORK_DIR/$PROJ_NAME
 	}
 	
-	# creat reporting directory 	
+	# creat synth directory 	
 	if {![file exists synth]} {
-		file mkdir $WORK_DIR/../sdf
+		file mkdir $WORK_DIR/../synth
 	} else {
 		puts "overwriting project synth directory "
-		file mkdir $WORK_DIR/../sdf
+		file mkdir $WORK_DIR/../synth
 	}
 
 	# creat sdf directory 	
@@ -30,15 +30,15 @@
 		puts "overwriting project directory sdf"
 		file mkdir $WORK_DIR/../sdf
 	}
-		# creat sdf directory 	
-	if {![file exists sdf]} {
+		# creat bit_stream directory 	
+	if {![file exists bit_stream]} {
 		file mkdir $WORK_DIR/../bit_stream
 	} else {
 		puts "overwriting project directory sdf"
 		file mkdir $WORK_DIR/../bit_stream
 	}
 
-	# creat synth directory 	
+	# creat Report Directories directory 	
 	if {![file exists ${PROJ_NAME}_rpt]} {
 		file mkdir $WORK_DIR/../${PROJ_NAME}_rpt
 		file mkdir $WORK_DIR/../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt
@@ -48,7 +48,6 @@
 		file mkdir $WORK_DIR/../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt
 		file mkdir $WORK_DIR/../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt
 	}
-
 	
 	cd 	 $PROJ_NAME
 ## 2. Crear Project with board selection
@@ -76,29 +75,34 @@
 	report_utilization 			 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_util.csv
 	report_power 			 			 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_power.csv
 	report_qor_assessment 	 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_qor_report.csv
+	#Post-Synthesis Functional netlist
+	write_verilog 	-force -mode funcsim ../../synth/${PROJ_NAME}_post_synth_func_netlist.v 
 	# post-synthesis SDF file
-	write_verilog -force 						../../synth/${PROJ_NAME}_post_synth_netlist.v -mode timesim -sdf_anno true
-	write_sdf 							 -force	../../sdf/${PROJ_NAME}_post_synth.sdf
-
-##  5. run logic optimization,placement
-	opt_design
-	#placement
-	place_design
-	write_checkpoint 				-force ../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_place.dcp
-	report_clock_utilization -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_place_clock_util.rpt
-	report_utilization 			 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_place_util.rpt
-	report_timing_summary 	 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_place_timing_summary.rpt
-#6. Route Design
-	route_design
-	write_checkpoint 			-force		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route.dcp
-	report_route_status 	-file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route_status.rpt
-	report_timing_summary -file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route_timing_summary.csv
-	report_power 					-file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route_power.csv
-	report_drc   					-file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_imp_drc.csv
-	report_power 			 		-file 		../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_par_power.csv
-	write_verilog -force 						../../synth/${PROJ_NAME}_netlist.v -mode timesim -sdf_anno true
-	write_xdc -no_fixed_only -force ../../constraints/${PROJ_NAME}_impl.xdc
-	write_sdf 							 -force	../../sdf/${PROJ_NAME}.sdf
+	open_checkpoint 			 ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth.dcp
+	write_verilog 	-force -mode timesim -sdf_anno true ../../synth/${PROJ_NAME}_post_synth_time_netlist.v
+	write_sdf 			-force ../../sdf/${PROJ_NAME}_post_synth.sdf
+# ##  5. run logic optimization,placement
+# 	opt_design
+# 	#placement
+# 	place_design
+# 	write_checkpoint 				-force ../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_place.dcp
+# 	report_clock_utilization -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_place_clock_util.rpt
+# 	report_utilization 			 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_place_util.rpt
+# 	report_timing_summary 	 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_place_timing_summary.rpt
+# #6. Route Design
+# 	route_design
+# 	write_checkpoint 			-force		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route.dcp
+# 	report_route_status 	-file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route_status.rpt
+# 	report_timing_summary -file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route_timing_summary.csv
+# 	report_power 					-file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route_power.csv
+# 	report_drc   					-file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_imp_drc.csv
+# 	report_power 			 		-file 		../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_par_power.csv
+# 	write_xdc -no_fixed_only -force ../../constraints/${PROJ_NAME}_post_route.xdc
+# 	#post Implementation Functional Netlist
+# 	write_verilog 					 -force ../../synth/${PROJ_NAME}_post_route_func_netlist.v -mode funcsim 
+# 	#post Implementation Timing Netlist
+# 	write_verilog 					 -force ../../synth/${PROJ_NAME}_post_route_time_netlist.v -mode timesim -sdf_anno true
+# 	write_sdf 							 -force	../../sdf/${PROJ_NAME}_post_route.sdf
 # ## Generate Bitstream
 	# write_bitstream -force 					../../bit_stream/${PROJ_NAME}.bit
 

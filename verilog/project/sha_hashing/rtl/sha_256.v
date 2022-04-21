@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module sha_256 #(
 	parameter BLK_CNT   = 6  ,
 	parameter MSG_SIZ   = 512,

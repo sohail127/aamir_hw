@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module data_path 
 	#(
 		parameter BLK_CNT=6,

@@ -39,18 +39,22 @@ module tb_sha_256 ();
 	always #(CLK_PRD/2) usr_clk=!usr_clk;
 
 // system reset task
-	task sys_rst();
+	task sys_rst(); 
+		begin
 		usr_reset_n = 1'b0   ;
 		i_start   	= 1'b0   ;
 		i_msg     	= 512'h0 ;
 		ii 					= 0 		 ;
+		end
 	endtask : sys_rst
 
 // initialize data
 	task init_sys();
+		begin
 		usr_reset_n = 1'b1 ;
 		i_start 		= 1'b1 ;
 		i_msg   		= 512'h61626380000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000018;
+		end
 	endtask : init_sys
 //-- *********** Stimulus here ******************--//
 	initial begin
@@ -67,7 +71,7 @@ module tb_sha_256 ();
 				break ;
 			end
 			else begin
-				$display("systen busy at clock cycle %d", ii++,);
+				$display("system busy at clock cycle %d", ii++);
 			end
 			@(posedge usr_clk);
 		end

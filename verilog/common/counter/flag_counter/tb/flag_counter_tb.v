@@ -1,14 +1,18 @@
 `timescale 1ns/1ps
 module flag_counter_tb ();
 
-	reg        clk_p          ;
-	reg        clk_n          ;
-	reg        rst_n          ;
-	reg        enable         ;
-	wire       flag_count     ;
-	localparam CLK_PRD    = 10;
+	reg  clk_p     ;
+	reg  clk_n     ;
+	reg  rst_n     ;
+	reg  enable    ;
+	wire flag_count;
 
-	flag_counter DUT (
+	localparam CLK_PRD = 10;
+
+	flag_counter /*#(
+		.N_BIT(5 ),
+		.DUMP (10)
+	)*/ DUT (
 		.clk_p     (clk_p     ),
 		.clk_n     (clk_n     ),
 		.rst_n     (rst_n     ),
