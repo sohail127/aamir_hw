@@ -11,6 +11,7 @@ xelab --debug typical 					\
 -L unimacro_ver 								\
 -L xilinxcorelib_ver  					\
 -L secureip xil_defaultlib.glbl \
+--define NETLIST 								\
 -prj puf_65_imse.prj 						\
 -s puf_65_imse 									\
 xil_defaultlib.tb_puf_top 

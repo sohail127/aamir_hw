@@ -23,6 +23,7 @@
 # xelab -wto cbe395c45f614551adef5ce6598a3ab7 \
 # -L unisims_ver  											\
 
+
 xelab -prj counter_flag.prj 					\
 --incr --debug typical 								\
 --relax --mt 8 				 								\

@@ -3,10 +3,7 @@
 #### 		Add all the src and tb files 
 #########################################################
 
-verilog xil_defaultlib "../../rtl/puf_not.v" 
-verilog xil_defaultlib "../../rtl/puf_cntr.v" 	
-verilog xil_defaultlib "../../rtl/puf_top.v " 
-verilog xil_defaultlib "../../rtl/puf_ro.v  " 
-verilog xil_defaultlib "../../tb/tb_puf_top.sv"
+verilog xil_defaultlib "$PROJ_DIR/netlist/${PROJ_NAME}_post_synth_func_netlist.v" 
+sv 			xil_defaultlib "$PROJ_DIR/tb/tb_puf_top.sv"
 verilog xil_defaultlib "$XILINX_VIVADO/data/verilog/src/glbl.v"
 

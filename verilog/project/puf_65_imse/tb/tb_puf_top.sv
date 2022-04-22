@@ -19,71 +19,75 @@ module tb_puf_top ();
 // ** Parameters here
 //********************************************************************************
 
-	parameter CNT_BIT_SIZE = 5  ; 
-	parameter CNT_SET      = 32 ;
-	parameter N_STAGE 		 = 6 	;
+	parameter CNT_BIT_SIZE = 5 ;
+	parameter CNT_SET      = 32;
+	parameter N_STAGE      = 6 ;
 
 //********************************************************************************
 // ** Outputs are wire
 //********************************************************************************
-	reg i_en   ;
-	reg rst_n  ;
+	reg i_en ;
+	reg rst_n;
 
 //********************************************************************************
 // ** Outputs are wire
 //********************************************************************************
-	wire                    o_valid     ; 
-	wire [CNT_BIT_SIZE-1:0] o_count     ; 
-	wire [     CNT_SET-1:0] o_count_set ; 
+	wire                    o_valid    ;
+	wire [CNT_BIT_SIZE-1:0] o_count    ;
+	wire [     CNT_SET-1:0] o_count_set;
 
 //********************************************************************************
 // ** Module instantiation
 //********************************************************************************
 
-puf_top #(
-	.CNT_BIT_SIZE(CNT_BIT_SIZE),
-	.CNT_SET     (CNT_SET     ),
-	.N_STAGE 		 (N_STAGE 		)
-) DUT(
-	.i_en       (i_en       ),
-	.rst_n      (rst_n      ),
-	.o_valid    (o_valid    ),
-	.o_count    (o_count    ),
-	.o_count_set(o_count_set)
-);
+	puf_top
+		`ifndef NETLIST
+			#(
+				.CNT_BIT_SIZE(CNT_BIT_SIZE),
+				.CNT_SET     (CNT_SET     ),
+				.N_STAGE 		 (N_STAGE 		)
+			)
+		`endif
+	DUT(
+		.i_en       (i_en       ),
+		.rst_n      (rst_n      ),
+		.o_valid    (o_valid    ),
+		.o_count    (o_count    ),
+		.o_count_set(o_count_set)
+	);
 
 //********************************************************************************
 // task initial system
 //********************************************************************************
-task init_sys(); 
-	begin
-		i_en 	= 1'b0;
-		#10	
-		i_en 	= 1'b1;
-		$display("Reset is de asserted");
-		repeat (5) begin
-			rst_n = 1'b0;
-			#5;
+	task init_sys();
+		begin
+			i_en 	= 1'b0;
+			#10
+				i_en 	= 1'b1;
+			$display("Reset is de asserted");
+			repeat (5) begin
+				rst_n = 1'b0;
+				#5;
+			end
+			$display("Initialization task");
+			rst_n = 1'b1;
 		end
-		$display("Initialization task");
-		rst_n = 1'b1;
-	end
-endtask : init_sys
+	endtask : init_sys
 
 //********************************************************************************
 // procedural block
 //********************************************************************************
 
-initial begin
-	$display("**********************************************");
-	$display("********Start Simulation**********************");
-	$display("**********************************************");
-	init_sys();
-	#200;
-	$display("**********************************************");	
-	$display("********Simulation Done***********************");
-	$display("**********************************************");
-	$stop;
-end
+	initial begin
+		$display("**********************************************");
+		$display("********Start Simulation**********************");
+		$display("**********************************************");
+		init_sys();
+		#200;
+		$display("**********************************************");
+		$display("********Simulation Done***********************");
+		$display("**********************************************");
+		$stop;
+	end
 
 endmodule // tb_puf_top
