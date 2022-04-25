@@ -34,7 +34,7 @@ FPGA Implementation can be divided into following steps:
 1. cd  <system_path>/puf_65_imse/sim/
 2. source set_env.sh
 3. cd xsim/post_syn/func
-4. ./run_sim
+4. ./run_sim                                                                                                                                             
 ##################################################################
 # 2.2. Post Synthesis timing Simulation
 ##################################################################
