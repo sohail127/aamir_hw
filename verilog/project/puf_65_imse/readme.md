@@ -1,14 +1,14 @@
 ##################################################################
 ##  FPGA Implementation of Physical Unclonable Function (PUF)
 ##################################################################
-FPGA Implementation can be divided into following steps:
-1. Functional Simulation
-2. Synthesis
+FPGA Implementation can be divided into following steps:                        
+1. Functional Simulation                                                      
+2. Synthesis                                                                   
 	2.1. Post_synthesis Functional Simulation
-	2.2. Post_synthesis Timing Simulation
-3. Implementation
-	3.1. Post_impl Functional Simulation
-	3.2. Post_impl Timing Simulation
+	2.2. Post_synthesis Timing Simulation                                        
+3. Implementation                                                               
+	3.1. Post_impl Functional Simulation                                          
+	3.2. Post_impl Timing Simulation                                             
 
 
 ##################################################################
