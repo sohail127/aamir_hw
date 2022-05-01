@@ -16,7 +16,7 @@
 module puf_top #(
 	parameter CNT_BIT_SIZE = 5 ,
 	parameter CNT_SET      = 16,
-	parameter N_STAGE      = 6
+	parameter N_STAGE      = 14
 ) (
 	input                     i_en       ,
 	input                     rst_n      ,
@@ -27,19 +27,17 @@ module puf_top #(
 
 // internal Signals
 
-	wire w_ro;
+	(*ALLOW_COMBINATORIAL_LOOPS = "true" , dont_touch = "true" *) 	  wire w_ro;
 
 //********************************************************************************
 //** Module Instantiation
 //********************************************************************************
-	puf_ro  #( 
-		.N_STAGE(N_STAGE)
-		)i_puf_ro (
+	(*ALLOW_COMBINATORIAL_LOOPS = "true" , dont_touch = "true" *)	puf_ro #(.N_STAGE(N_STAGE)) i_puf_ro (
 		.i_en(i_en),
 		.o_ro(w_ro)
 	);
 //********************************************************************************
-//** PUF Counter module instantiation 
+//** PUF Counter module instantiation
 //********************************************************************************
 	puf_cntr #(
 		.CNT_BIT_SIZE(CNT_BIT_SIZE),
@@ -52,6 +50,7 @@ module puf_top #(
 		.o_count    (o_count    ),
 		.o_count_set(o_count_set)
 	);
+
 
 
 endmodule // puf_top

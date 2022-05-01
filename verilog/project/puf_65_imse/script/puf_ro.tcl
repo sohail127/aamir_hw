@@ -5,8 +5,10 @@
 ################################################################################
 ## 1. Define Path Variables
 ################################################################################
+
 	set  WORK_DIR ./
-	set  PROJ_NAME puf_ro_65
+	set  N_STAGE_PARAM 14
+	set  PROJ_NAME puf_ro_65_${N_STAGE_PARAM}
 	# creat project directory 	
 	if {![file exists ${PROJ_NAME}]} {
 		file mkdir $WORK_DIR/$PROJ_NAME
@@ -50,7 +52,7 @@
 		file mkdir $WORK_DIR/../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt
 	}
 
-	
+
 	cd 	 $PROJ_NAME
 ################################################################################
 ## 2. Crear Project with board selection
@@ -62,25 +64,29 @@
 ## 3. Add files,  rtl , tb and constraints files
 ################################################################################
 	add_files -fileset sources_1 [glob "${WORK_DIR}/../../rtl/*.v"] 
-	# add_files -fileset sim_1 		 [glob "${WORK_DIR}/../../tb/*.sv"] 
-	# add_files -fileset constrs_1 [glob "$WORK_DIR/../../constraints/${PROJ_NAME}.xdc"]
+	add_files -fileset sim_1 		 [glob "${WORK_DIR}/../../tb/*.sv"] 
+	add_files -fileset constrs_1 [glob "${WORK_DIR}/../../constraints/${PROJ_NAME}.xdc"]
 	update_compile_order -fileset sources_1
 
 ################################################################################
 ## 4. Run Synthesis 
 ################################################################################
 	#set atributes here
+	set_property generic {N_STAGE=14}  [current_fileset]
 	synth_design -top puf_top -part $PART_NUMB 
   write_checkpoint 				-force ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth.dcp
-	report_timing_summary 	 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_timing_summary.rpt
-	report_utilization 			 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_util.rpt
-	report_utilization 			 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_critpath_report.csv
-	report_power 			 			 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_power.csv
-	report_qor_assessment 	 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_qor_report.csv
+	report_timing -from [get_pins i_puf_ro/i_en] -to [get_pins i_puf_ro/o_ro] -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_cntr_comb_delay.rpt
+	report_timing_summary 	 					 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_timing_summary.rpt
+	report_design_analysis 	 					 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_design_summary.rpt
+	report_design_analysis -timing 		 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_critical_path_summary.rpt
+	report_utilization 	-hierarchical  -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_util_summary.rpt
+	report_utilization 			 					 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_util.rpt
+	report_power 			 			 					 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_power.csv
+	report_qor_assessment 	 					 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_qor_report.csv
 	#Post-Synthesis Functional netlist
 	write_verilog 	-force -mode funcsim ../../netlist/${PROJ_NAME}_post_synth_func_netlist.v 
 	# post-synthesis SDF file
-	open_checkpoint 			 ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth.dcp
+	# open_checkpoint 			 ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth.dcp
 	write_verilog 	-force -mode timesim -sdf_anno true ../../netlist/${PROJ_NAME}_post_synth_time_netlist.v
 	write_sdf 			-force ../../sdf/${PROJ_NAME}_post_synth_time.sdf
 ################################################################################
@@ -103,12 +109,14 @@
 	report_timing_summary -file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route_timing_summary.rpt
 	report_power 					-file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route_power.rpt
 	report_drc   					-file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_imp_drc.rpt
+	write_xdc -no_fixed_only -force ../../constraints/${PROJ_NAME}_post_route.xdc
 		#Post-Synthesis Functional netlist
 	write_verilog 	-force -mode funcsim ../../netlist/${PROJ_NAME}_post_impl_func_netlist.v 
 	# post-synthesis SDF file
-	open_checkpoint 			 ../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route.dcp
+	# open_checkpoint 			 ../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route.dcp
 	write_verilog 	-force -mode timesim -sdf_anno true ../../netlist/${PROJ_NAME}_post_impl_time_netlist.v
-	write_sdf 			-force ../../sdf/${PROJ_NAME}_post_synth.sdf
+	write_sdf 			-force ../../sdf/${PROJ_NAME}_post_impl_time.sdf
+
 ################################################################################
 # ## Generate Bitstream
 ################################################################################

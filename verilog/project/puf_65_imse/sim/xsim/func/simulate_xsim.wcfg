@@ -12,12 +12,12 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="225.001 ns"></ZoomEndTime>
-      <Cursor1Time time="225.000 ns"></Cursor1Time>
+      <ZoomEndTime time="201.001 ns"></ZoomEndTime>
+      <Cursor1Time time="164.321 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="116"></ValueColumnWidth>
+      <ValueColumnWidth column_width="113"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="2" />
    <wvobject type="group" fp_name="group77">
@@ -39,18 +39,22 @@
       <wvobject type="array" fp_name="/tb_puf_top/o_count">
          <obj_property name="ElementShortName">o_count[4:0]</obj_property>
          <obj_property name="ObjectShortName">o_count[4:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_puf_top/o_count_set">
-         <obj_property name="ElementShortName">o_count_set[31:0]</obj_property>
-         <obj_property name="ObjectShortName">o_count_set[31:0]</obj_property>
+         <obj_property name="ElementShortName">o_count_set[4:0]</obj_property>
+         <obj_property name="ObjectShortName">o_count_set[4:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_puf_top/CNT_BIT_SIZE">
          <obj_property name="ElementShortName">CNT_BIT_SIZE[31:0]</obj_property>
          <obj_property name="ObjectShortName">CNT_BIT_SIZE[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_puf_top/CNT_SET">
          <obj_property name="ElementShortName">CNT_SET[31:0]</obj_property>
          <obj_property name="ObjectShortName">CNT_SET[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
    </wvobject>
    <wvobject type="group" fp_name="group88">
@@ -70,12 +74,14 @@
          <obj_property name="ObjectShortName">w_nand</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_puf_top/DUT/i_puf_ro/w_ring">
-         <obj_property name="ElementShortName">w_ring[4:0]</obj_property>
-         <obj_property name="ObjectShortName">w_ring[4:0]</obj_property>
+         <obj_property name="ElementShortName">w_ring[5:0]</obj_property>
+         <obj_property name="ObjectShortName">w_ring[5:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/tb_puf_top/DUT/i_puf_ro/N_STAGE">
          <obj_property name="ElementShortName">N_STAGE[31:0]</obj_property>
          <obj_property name="ObjectShortName">N_STAGE[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

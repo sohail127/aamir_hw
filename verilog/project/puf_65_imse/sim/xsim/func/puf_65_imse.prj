@@ -7,6 +7,6 @@ verilog xil_defaultlib "$PROJ_DIR/rtl/puf_not.v"
 verilog xil_defaultlib "$PROJ_DIR/rtl/puf_cntr.v" 	
 verilog xil_defaultlib "$PROJ_DIR/rtl/puf_top.v " 
 verilog xil_defaultlib "$PROJ_DIR/rtl/puf_ro.v  " 
-verilog xil_defaultlib "$PROJ_DIR/tb/tb_puf_top.sv"
+sv 			xil_defaultlib "$PROJ_DIR/tb/tb_puf_top.sv"
 verilog xil_defaultlib "$XILINX_VIVADO/data/verilog/src/glbl.v"
 

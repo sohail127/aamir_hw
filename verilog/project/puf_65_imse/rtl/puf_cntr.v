@@ -33,7 +33,7 @@ module puf_cntr #(
 );
 
 	// counter logic
-	always@(posedge  clk, negedge rst_n) begin
+	always@(posedge  clk or negedge rst_n) begin
 		if(!rst_n) begin
 			o_count <= {CNT_BIT_SIZE{1'b0}};
 		end
@@ -41,11 +41,14 @@ module puf_cntr #(
 			if (i_en) begin
 				o_count <= o_count + 1;
 			end
+			else begin
+				o_count <= {CNT_BIT_SIZE{1'b0}};
+			end
 		end
 	end
 	
 	// parametrize output of counter 
-	always @(posedge clk , negedge rst_n) begin 
+	always @(posedge clk or negedge rst_n) begin 
 		if(!rst_n) begin
 			o_count_set <= {CNT_BIT_SIZE{1'b0}} ;
 			o_valid 		<= 1'b0 	 						  ;
@@ -61,5 +64,8 @@ module puf_cntr #(
 				end
 		end
 	end
+
+	// assign o_count_set  = (o_count == CNT_SET) ? o_count : {CNT_BIT_SIZE{1'b0}} ;
+	// assign o_valid 		 = (o_count == CNT_SET) ? 1'b1 : 1'b0 ;
 
 endmodule // puf_cntr

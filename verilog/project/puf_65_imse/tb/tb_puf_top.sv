@@ -20,8 +20,8 @@ module tb_puf_top ();
 //********************************************************************************
 
 	parameter CNT_BIT_SIZE = 5 ;
-	parameter CNT_SET      = 32;
-	parameter N_STAGE      = 6 ;
+	parameter CNT_SET      = 15;
+	parameter N_STAGE      = 10;
 
 //********************************************************************************
 // ** Outputs are wire
@@ -34,20 +34,20 @@ module tb_puf_top ();
 //********************************************************************************
 	wire                    o_valid    ;
 	wire [CNT_BIT_SIZE-1:0] o_count    ;
-	wire [     CNT_SET-1:0] o_count_set;
+	wire [CNT_BIT_SIZE-1:0] o_count_set;
 
 //********************************************************************************
 // ** Module instantiation
 //********************************************************************************
 
 	puf_top
-		`ifndef NETLIST
+/*		`ifndef NETLIST
 			#(
 				.CNT_BIT_SIZE(CNT_BIT_SIZE),
 				.CNT_SET     (CNT_SET     ),
 				.N_STAGE 		 (N_STAGE 		)
 			)
-		`endif
+		`endif*/
 	DUT(
 		.i_en       (i_en       ),
 		.rst_n      (rst_n      ),
@@ -83,7 +83,15 @@ module tb_puf_top ();
 		$display("********Start Simulation**********************");
 		$display("**********************************************");
 		init_sys();
-		#200;
+		forever begin
+			if (o_valid) begin
+				$display("counter overflow!!!");
+				#200
+				break;
+			end
+			#1;
+		end
+		// #200;
 		$display("**********************************************");
 		$display("********Simulation Done***********************");
 		$display("**********************************************");
