@@ -15,6 +15,8 @@ package fifo_pkg;
 	`include "in_agent.sv"
 	// coverage
 	`include "fifo_coverage.sv"
+	// scoreboard
+	`include "fifo_scoreboard.sv"
 	// env
 	`include "fifo_env.sv"
 	// test

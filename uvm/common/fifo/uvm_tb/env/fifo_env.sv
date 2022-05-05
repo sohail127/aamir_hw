@@ -27,5 +27,12 @@ class fifo_env extends  uvm_env;
     fifo_scb 	= fifo_scoreboard::type_id::create("fifo_scb", this);
 	endfunction : build_phase
 	
- 
+	// connect phase
+	function void connect_phase(uvm_phase phase);
+		super.connect_phase(phase);
+		// conenct scb ports with input and output agents
+		in_ag.in_ag_ap.conenct(fifo_scb.in_item_exp_ap);
+		out_ag.out_ag_ap.conenct(fifo_scb.out_item_exp_ap);
+	endfunction : connect_phase
+
 endclass : fifo_env
