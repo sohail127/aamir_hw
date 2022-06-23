@@ -3,7 +3,7 @@ class in_seq_item extends uvm_object;
 	`uvm_object_utils(in_seq_item)
 	
 	// class members
-	bit [15:0] wrd;
+	rand bit [15:0] wrd;
 	// class constructor function
 	function void new (string name);
 		super.new(name);

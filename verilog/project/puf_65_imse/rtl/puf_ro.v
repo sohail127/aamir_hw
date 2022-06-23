@@ -22,9 +22,8 @@ module puf_ro #(
 	(*ALLOW_COMBINATORIAL_LOOPS = "true" , dont_touch = "true" *) 		 wire  w_nand    		      ;	
 	(*ALLOW_COMBINATORIAL_LOOPS = "true" , dont_touch = "true" *) 		 wire  w_ring[N_STAGE-1:0];
 	
-	 assign w_nand 	 = ~(i_en & w_ring[N_STAGE-1]);	
+	 assign w_nand 	 	= ~(i_en & w_ring[N_STAGE-1]);	
 	 assign w_ring[0] = ~ w_nand;
-
 	 assign o_ro 		 	= w_ring [N_STAGE-1];
 	
 	genvar i ;
@@ -36,7 +35,6 @@ module puf_ro #(
 					.o_not(w_ring[i+1])
 				);
 			end
-		// end
 	endgenerate
        
 endmodule // puf_ro

@@ -1,12 +1,20 @@
 module tb_top ();
 
-	in_interface  vif_in ;
-	out_interface vif_out;
+	// Internal paramters
+	parameter CLK_PRD 	 = 10 	;
+	parameter FIFO_DEPTH = 1024 ;
+	parameter BUS_WIDTH  = 32 	;
+	// clocking singnals
+	bit clk;
 
-// DUT initialization
+	// Interface instances
+	in_interface  if_in (clk);
+	out_interface if_out(clk);
+
+	// DUT initialization
 	fifo #(
-		parameter FIFO_DEPTH = 1024,
-		parameter BUS_WIDTH  = 32
+		.FIFO_DEPTH(FIFO_DEPTH),  
+		.BUS_WIDTH (BUS_WIDTH )  
 	) DUT (
 		.clk    (clk            ), // input                clk    , // Clock
 		.rst_n  (vif_in.rst_n   ), // input                rst_n  , // Asynchronous reset active low
@@ -17,11 +25,13 @@ module tb_top ();
 		.o_empty(vif_out.o_empty), // output               o_empty, // 1 : if fifo is empty
 		.o_full (vif_out.o_full )  // output               o_full   // 1 : if fifo is full
 	);
+
 // set interface config_db 
 initial begin
-	`uvm_config_db();
-	`uvm_config_db();
+	uvm_config_db#(virtual in_interface)::set(uvm_root::get(),"*","if_in", vif_in );
+	uvm_config_db#(virtual out_interface)::set(uvm_root::get(),"*","if_out",vif_out);
 end
+
 initial begin
 	run_test();
 end

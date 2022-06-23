@@ -75,7 +75,7 @@
 	set_property generic {N_STAGE=14}  [current_fileset]
 	synth_design -top puf_top -part $PART_NUMB 
   write_checkpoint 				-force ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth.dcp
-	report_timing -from [get_pins i_puf_ro/i_en] -to [get_pins i_puf_ro/o_ro] -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_cntr_comb_delay.rpt
+	report_timing -from [get_ports i_en] -to [get_pins reg_ro_reg/D] -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_comb_delay.rpt
 	report_timing_summary 	 					 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_timing_summary.rpt
 	report_design_analysis 	 					 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_design_summary.rpt
 	report_design_analysis -timing 		 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_synth_rpt/post_synth_critical_path_summary.rpt
@@ -107,6 +107,8 @@
 	write_checkpoint 			-force		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route.dcp
 	report_route_status 	-file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route_status.rpt
 	report_timing_summary -file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route_timing_summary.rpt
+	report_timing -from [get_ports i_en] -to [get_pins reg_ro_reg/D] -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route_comb_delay.rpt
+	report_design_analysis -timing 		 -file ../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_impl_critical_path_summary.rpt
 	report_power 					-file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_route_power.rpt
 	report_drc   					-file  		../../${PROJ_NAME}_rpt/${PROJ_NAME}_impl_rpt/post_imp_drc.rpt
 	write_xdc -no_fixed_only -force ../../constraints/${PROJ_NAME}_post_route.xdc

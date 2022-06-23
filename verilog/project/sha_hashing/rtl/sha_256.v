@@ -1,17 +1,18 @@
 `timescale 1ns/1ps
 module sha_256 #(
-	parameter BLK_CNT   = 6  ,
-	parameter MSG_SIZ   = 512,
-	parameter MSG_BLK   = 32 ,
-	parameter MAX_CNT   = 63 ,
-	parameter HASH_SIZE = 256
+	parameter BLK_CNT            = 6  ,
+	parameter MESSAGE_INPUT_SIZE = 24 ,
+	parameter MSG_SIZ            = 512,
+	parameter MSG_BLK            = 32 ,
+	parameter MAX_CNT            = 63 ,
+	parameter HASH_SIZE          = 256
 ) (
-	input                  usr_clk    , // system clock signal
-	input                  usr_reset_n, // system global reset_n active low logic
-	input                  i_start    , // To start calculating hash just as enable
-	input  [  MSG_SIZ-1:0] i_msg      , // message to finf hash
-	output                 o_valid    ,
-	output [HASH_SIZE-1:0] o_hash       // Hash value
+	input                           usr_clk    , // system clock signal
+	input                           usr_reset_n, // system global reset_n active low logic
+	input                           i_start    , // To start calculating hash just as enable
+	input  [MESSAGE_INPUT_SIZE-1:0] i_msg      , // message to finf hash
+	output                          o_valid    ,
+	output [         HASH_SIZE-1:0] o_hash       // Hash value
 );
 	`include "msg_schdl_function.vh"
 	`include "round_function.vh"
@@ -49,6 +50,14 @@ module sha_256 #(
 	assign h_g = o_hash_rnd[63:32];
 	assign h_h = o_hash_rnd[31:0];
 
+//--*********** Message Padding usnit *************--//
+	message_peddaing #(
+		.INPUT_SIZE (MESSAGE_INPUT_SIZE),
+		.OUTPUT_SIZE(MSG_SIZ           )
+	) pad (
+		.i_msg(i_msg       ),
+		.o_msg(o_msg_padded)
+	);
 //--**********control unit **************--//
 	cu_sha cu (
 		.usr_clk    (usr_clk    ), // system clock signal
@@ -69,15 +78,15 @@ module sha_256 #(
 		.MAX_CNT  (MAX_CNT  ),
 		.HASH_SIZE(HASH_SIZE)
 	) dp (
-		.clk        (usr_clk    ),
-		.reset_n    (usr_reset_n),
-		.i_dp_en    (o_cnt_en   ),
+		.clk        (usr_clk     ),
+		.reset_n    (usr_reset_n ),
+		.i_dp_en    (o_cnt_en    ),
 		//	.i_pre_blck_hash(i_pre_blck_hash),
-		.i_msg      (i_msg      ),
-		.round_count(round_count),
-		.i_cnt_en   (o_cnt_en   ),
-		.flag       (flag       ),
-		.o_hash     (o_hash_rnd )
+		.i_msg      (o_msg_padded),
+		.round_count(round_count ),
+		.i_cnt_en   (o_cnt_en    ),
+		.flag       (flag        ),
+		.o_hash     (o_hash_rnd  )
 	);
 
 //	assign o_hash = sel_1 ? (o_hash_rnd + IV) : 256'd0;

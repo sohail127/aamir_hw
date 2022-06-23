@@ -16,7 +16,7 @@
 # Disable Timing
 
 
-	create_clock 		 -name usr_clk -period 5.00  -waveform {0 2.5} [get_ports usr_clk]
+	create_clock 		 -name usr_clk -period 10.00  -waveform {0 1.5} [get_ports usr_clk]
 # Input constraints
 	# set_input_delay  -rise -clock usr_clk  0.0 [all_inputs]
 	# set_clock_uncertainty -setup 0.1 [get_clocks usr_clk]
