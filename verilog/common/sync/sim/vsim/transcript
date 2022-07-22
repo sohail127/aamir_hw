@@ -1,0 +1,89 @@
+do toggle_sync.do
+# Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  2 2021
+# Start time: 13:04:33 on Jul 15,2022
+# vlog -reportprogress 300 -define FULL_TEST ../../tb/tb_toggle_sync.sv ../../rtl/toggle_sync.v 
+# -- Compiling module tb_toggle_sync
+# -- Compiling module toggle_sync
+# 
+# Top level modules:
+# 	tb_toggle_sync
+# End time: 13:04:33 on Jul 15,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim tb_toggle_sync -voptargs="+acc+tb_toggle_sync" -sv_seed random -t 1ns 
+# Start time: 13:04:33 on Jul 15,2022
+# Loading sv_std.std
+# Loading work.tb_toggle_sync
+# Loading work.toggle_sync
+# Sv_Seed = 3710513658
+# Number of pulses tarnsmitted on fast clock             1
+# Number of pulses tarnsmitted on fast clock             2
+# Number of pulses collected on slow clock               1
+# Number of pulses tarnsmitted on fast clock             3
+# Number of pulses collected on slow clock               2
+# Number of pulses tarnsmitted on fast clock             4
+# Number of pulses collected on slow clock               3
+# Number of pulses collected on slow clock               4
+# Number of pulses tarnsmitted on fast clock             5
+# Number of pulses tarnsmitted on fast clock             6
+# Number of pulses collected on slow clock               5
+# Number of pulses tarnsmitted on fast clock             7
+# Number of pulses collected on slow clock               6
+# Number of pulses tarnsmitted on fast clock             8
+# Number of pulses collected on slow clock               7
+# Number of pulses tarnsmitted on fast clock             9
+# Number of pulses collected on slow clock               8
+# Number of pulses collected on slow clock               9
+# Number of pulses tarnsmitted on fast clock            10
+# Number of pulses collected on slow clock              10
+# ****************************************************
+# *****_____TEST PASS !!!!!!!____________________*****
+# ****************************************************
+# ****************************************************
+# *****_____FINISH_SIMULATION____________________*****
+# ****************************************************
+# ** Note: $stop    : ../../tb/tb_toggle_sync.sv(141)
+#    Time: 630 ns  Iteration: 1  Instance: /tb_toggle_sync
+# Break in Module tb_toggle_sync at ../../tb/tb_toggle_sync.sv line 141
+do toggle_sync.do
+# Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  2 2021
+# Start time: 13:08:35 on Jul 15,2022
+# vlog -reportprogress 300 -define ERROR_TEST ../../tb/tb_toggle_sync.sv ../../rtl/toggle_sync.v 
+# -- Compiling module tb_toggle_sync
+# -- Compiling module toggle_sync
+# 
+# Top level modules:
+# 	tb_toggle_sync
+# End time: 13:08:35 on Jul 15,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 13:08:35 on Jul 15,2022, Elapsed time: 0:04:02
+# Errors: 0, Warnings: 0
+# vsim tb_toggle_sync -voptargs="+acc+tb_toggle_sync" -sv_seed random -t 1ns 
+# Start time: 13:08:35 on Jul 15,2022
+# Loading sv_std.std
+# Loading work.tb_toggle_sync
+# Loading work.toggle_sync
+# Sv_Seed = 1124703300
+# Number of pulses tarnsmitted on fast clock             1
+# Number of pulses tarnsmitted on fast clock             2
+# Number of pulses tarnsmitted on fast clock             3
+# Number of pulses collected on slow clock               1
+# Number of pulses tarnsmitted on fast clock             4
+# Number of pulses tarnsmitted on fast clock             5
+# Number of pulses collected on slow clock               2
+# Number of pulses tarnsmitted on fast clock             6
+# Number of pulses tarnsmitted on fast clock             7
+# Number of pulses tarnsmitted on fast clock             8
+# Number of pulses tarnsmitted on fast clock             9
+# Number of pulses tarnsmitted on fast clock            10
+# Number of pulses collected on slow clock               3
+# ****************************************************
+# *****_____TEST FAILED !!!!!!!__________________*****
+# ****************************************************
+# ****************************************************
+# *****_____FINISH_SIMULATION____________________*****
+# ****************************************************
+# ** Note: $stop    : ../../tb/tb_toggle_sync.sv(141)
+#    Time: 350 ns  Iteration: 1  Instance: /tb_toggle_sync
+# Break in Module tb_toggle_sync at ../../tb/tb_toggle_sync.sv line 141
+# End time: 13:12:50 on Jul 15,2022, Elapsed time: 0:04:15
+# Errors: 0, Warnings: 0

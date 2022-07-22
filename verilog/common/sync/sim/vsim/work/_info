@@ -1,0 +1,57 @@
+m255
+K4
+z2
+!s11f vlog 2021.1 2021.02, Feb  2 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/sohail/Desktop/project/aamir_hw/verilog/common/sync/sim/vsim
+vtb_toggle_sync
+DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z1 !s110 1657883315
+!i10b 1
+!s100 0KRizR45hoM7I?_VQc3bA3
+ISodZE5k;Ma`:1=3=@H4443
+S1
+R0
+w1657725629
+8../../tb/tb_toggle_sync.sv
+F../../tb/tb_toggle_sync.sv
+!i122 0
+L0 1 143
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 OV;L;2021.1;73
+r1
+!s85 0
+31
+Z4 !s108 1657883315.000000
+!s107 ../../rtl/toggle_sync.v|../../tb/tb_toggle_sync.sv|
+Z5 !s90 -reportprogress|300|-define|ERROR_TEST|../../tb/tb_toggle_sync.sv|../../rtl/toggle_sync.v|
+!i113 1
+Z6 o-define ERROR_TEST
+Z7 tCvgOpt 0
+vtoggle_sync
+R1
+!i10b 1
+!s100 m7WOWEQ?j[:a9F0L8OaRP3
+I3HJFAYD^]FPBACIfWQLmh0
+R0
+w1657645025
+8../../rtl/toggle_sync.v
+F../../rtl/toggle_sync.v
+!i122 0
+L0 1 47
+R2
+R3
+r1
+!s85 0
+31
+R4
+Z8 !s107 ../../rtl/toggle_sync.v|../../tb/tb_toggle_sync.sv|
+R5
+!i113 1
+R6
+R7
