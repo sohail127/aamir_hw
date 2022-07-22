@@ -1,0 +1,7 @@
+0.7
+2020.2
+Jun 10 2021
+19:45:28
+/EDA/Xilinx/Vivado/2021.1/data/verilog/src/glbl.v,1623370582,verilog,,,,glbl,,secureip;unimacro_ver;unisims_ver;xil_defaultlib;xilinxcorelib_ver,,NETLIST,,,,
+/home/sohail/Desktop/project/aamir_hw/verilog/project/puf_65_imse/netlist/puf_ro_65_post_synth_func_netlist.v,1650995756,verilog,,,,puf_cntr;puf_ro;puf_top,,secureip;unimacro_ver;unisims_ver;xil_defaultlib;xilinxcorelib_ver,,NETLIST,,,,
+/home/sohail/Desktop/project/aamir_hw/verilog/project/puf_65_imse/tb/tb_puf_top.sv,1650991460,systemVerilog,,,,tb_puf_top,,secureip;unimacro_ver;unisims_ver;xil_defaultlib;xilinxcorelib_ver,,NETLIST,,,,

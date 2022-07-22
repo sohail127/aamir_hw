@@ -1,0 +1,4 @@
+Running: xsim.dir/puf_65_imse/xsimk -wdb simulate_xsim.wdb -simmode gui -simrunnum 0 -socket 50679
+Design successfully loaded
+Design Loading Memory Usage: 35112 KB (Peak: 35168 KB)
+Design Loading CPU Usage: 30 ms
