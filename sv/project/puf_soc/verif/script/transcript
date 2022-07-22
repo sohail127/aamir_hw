@@ -1,0 +1,41 @@
+# vsim tb_puf_soc_top -voptargs="+acc+tb_puf_soc_top" -sv_seed random -t 1ns 
+# Start time: 20:02:57 on Jul 20,2022
+# Loading sv_std.std
+# Loading work.puf_soc_pkg
+# Loading work.tb_puf_soc_top
+# Loading work.puf_rx_if
+# Loading work.puf_tx_if
+# Loading work.puf_soc_top
+# Loading work.puf_soc_cntrlr
+# Loading work.puf_soc_dta_pth
+# Loading work.puf_soc_sipo
+# Loading work.puf_soc_ro_decoder
+# Loading work.puf_soc_ro_bank
+# Loading work.puf_soc_mux
+# Loading work.puf_soc_counter
+# Loading work.puf_soc_comparator
+# Loading work.puf_soc_assembler
+# Loading work.puf_soc_piso
+# Loading work.puf_soc_ro
+# Loading work.puf_soc_ro_not
+# Sv_Seed = 114027347
+add wave -position insertpoint sim:/tb_puf_soc_top/*
+add wave -position insertpoint sim:/tb_puf_soc_top/rx_if/*
+add wave -position insertpoint sim:/tb_puf_soc_top/tx_if/*
+run
+# *****************************
+# *******[HOST_TX_DRV]*********
+# *****************************
+# ** Fatal: /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/host_rx_mon.sv(11): Illegal virtual interface dereference.
+#    Time: 70 ns  Iteration: 1  Process: /puf_soc_pkg::host_env::run/#FORK#41_f697aeb File: /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/host_rx_mon.sv
+# Fatal error in Task puf_soc_pkg/host_rx_mon::run at /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/host_rx_mon.sv line 11
+# 
+# HDL call sequence:
+# Stopped at /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/host_rx_mon.sv 11 Task puf_soc_pkg/host_rx_mon::run
+# called from  /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/host_rx_ag.sv 19 Task puf_soc_pkg/host_rx_ag::run
+# called from  /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/host_env.sv 41 Task puf_soc_pkg/host_env::run
+# 
+# Break key hit
+# Break key hit
+# End time: 20:09:43 on Jul 20,2022, Elapsed time: 0:06:46
+# Errors: 1, Warnings: 0

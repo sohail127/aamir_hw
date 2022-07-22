@@ -1,0 +1,9 @@
+rm -rf work
+TranscriptFile = log_file
+vlog +incdir+${PROJ_DIR}/verif/tb  -sv ${PROJ_DIR}/verif/tb/puf_soc_pkg.sv \
+-f ${PROJ_DIR}/verif/vlib/tb_file_list.f  	\
+-f ${PROJ_DIR}/verif/vlib/rtl_file_list.f 					
+  
+vsim tb_puf_soc_top -voptargs=+acc+tb_puf_soc_top -sv_seed random -t 1ns
+run -a
+# q
