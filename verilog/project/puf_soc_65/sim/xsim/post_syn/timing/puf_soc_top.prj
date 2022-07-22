@@ -1,9 +1,0 @@
-#########################################################
-#### 		Simulation project file for counter
-#### 		Add all the src and tb files 
-#########################################################
-
-verilog xil_defaultlib "$PROJ_DIR/netlist/${PROJ_NAME}_post_synth_time_netlist.v  " 
-sv 			xil_defaultlib "$PROJ_DIR/tb/tb_puf_soc_top.sv"
-verilog xil_defaultlib "$XILINX_VIVADO/data/verilog/src/glbl.v"
-
