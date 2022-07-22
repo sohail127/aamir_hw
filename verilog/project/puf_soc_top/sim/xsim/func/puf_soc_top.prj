@@ -1,0 +1,21 @@
+#########################################################
+#### 		Simulation project file for counter
+#### 		Add all the src and tb files 
+#########################################################
+
+verilog xil_defaultlib "$PROJ_DIR/rtl/puf_soc_sipo.v"              		
+verilog xil_defaultlib "$PROJ_DIR/rtl/puf_soc_ro_decoder.v"                                   
+verilog xil_defaultlib "$PROJ_DIR/rtl/puf_soc_ro_not.v"                           
+verilog xil_defaultlib "$PROJ_DIR/rtl/puf_soc_ro.v"                                         
+verilog xil_defaultlib "$PROJ_DIR/rtl/puf_soc_ro_bank.v"                                               
+verilog xil_defaultlib "$PROJ_DIR/rtl/puf_soc_mux.v"                                     
+verilog xil_defaultlib "$PROJ_DIR/rtl/puf_soc_counter.v"                                               
+verilog xil_defaultlib "$PROJ_DIR/rtl/puf_soc_comparator.v"                              		
+verilog xil_defaultlib "$PROJ_DIR/rtl/puf_soc_assembler.v"                                         
+verilog xil_defaultlib "$PROJ_DIR/rtl/puf_soc_piso.v"                                         
+verilog xil_defaultlib "$PROJ_DIR/rtl/puf_soc_dta_pth.v"               
+verilog xil_defaultlib "$PROJ_DIR/rtl/puf_soc_cntrlr.v"     
+verilog xil_defaultlib "$PROJ_DIR/rtl/puf_soc_top.v"                                      		
+sv 			xil_defaultlib "$PROJ_DIR/tb/tb_puf_soc_top.sv"
+verilog xil_defaultlib "$XILINX_VIVADO/data/verilog/src/glbl.v"
+                                                                                                                                             
