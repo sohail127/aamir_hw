@@ -10,10 +10,10 @@ module tb_puf_soc_top ();
 	parameter CNT_BIT_SIZE   = 32 ;
 	parameter FRAM_SIZE      = 160;
 	parameter NORM_MOD       = 34 ;
-	parameter DEBUG_MOD      = 133;
+	parameter DEBUG_MOD      = 157;
 	parameter CLK_PRD        = 10 ;
 	parameter XACT_CNT       = 10 ; 
-	parameter DEBUG_XACT_CNT = 6 ;
+	parameter DEBUG_XACT_CNT = 10 ;
 //********************************************************************************
 // ** Internal Signals
 //********************************************************************************
@@ -146,9 +146,9 @@ endtask : debug_mod
 				// i_rx_data  = $urandom_range(0,1);
 				i_rx_data  = rx_frame [ii];
 			end
-			
+			// @(!o_tx_valid);
 			// wait for some clock cycles and assert the op_mode signal for 1 clock cycle
-			repeat(200) begin
+			repeat(300) begin
 				@(posedge clk); 
 			end
 			$display("i_op_mode is asserted");
