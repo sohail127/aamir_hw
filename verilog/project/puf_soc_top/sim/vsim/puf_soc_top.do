@@ -1,5 +1,5 @@
 rm -rf work
-vlog ../../tb/tb_puf_soc_top.sv 		\
+vlog -define SYNC_SYS ../../tb/tb_puf_soc_top.sv 		\
 ../../rtl/puf_soc_top.v 						\
 ../../rtl/puf_soc_cntrlr.v 					\
 ../../rtl/puf_soc_sipo.v            \
@@ -9,6 +9,10 @@ vlog ../../tb/tb_puf_soc_top.sv 		\
 ../../rtl/puf_soc_ro_bank.v         \
 ../../rtl/puf_soc_counter.v         \
 ../../rtl/puf_soc_comparator.v      \
+../../rtl/dflipflop.v     				  \
+../../rtl/m_ff_sync.v     				  \
+../../rtl/puls_hnd_shk_sync.v       \
+../../rtl/puf_soc_syn.v     			  \
 ../../rtl/puf_soc_piso.v            \
 ../../rtl/puf_soc_mux.v             \
 ../../rtl/puf_soc_assembler.v       \

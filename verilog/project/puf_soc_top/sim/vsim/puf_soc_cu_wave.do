@@ -20,6 +20,7 @@ add wave -position insertpoint -color "light blue" -radix unsigned -group output
 add wave -position insertpoint -color "light blue" -radix unsigned -group output  sim:/tb_puf_soc_cntrlr/o_dump_enable
 add wave -position insertpoint -color "light blue" -radix unsigned -group output  sim:/tb_puf_soc_cntrlr/o_sel_mux_0  
 add wave -position insertpoint -color "light blue" -radix unsigned -group output  sim:/tb_puf_soc_cntrlr/o_sel_mux_1  
+add wave -position insertpoint -color "light blue" -radix unsigned -group output  sim:/tb_puf_soc_cntrlr/o_max_count  
 #DUT signals
 add wave -position insertpoint -color "light blue" -radix unsigned -group DUT  sim:/tb_puf_soc_cntrlr/DUT/isr_done
 add wave -position insertpoint -color "light blue" -radix unsigned -group DUT  sim:/tb_puf_soc_cntrlr/DUT/isr_call

@@ -3,12 +3,15 @@ class host_rx_mon ;
 	// interface instance
 	virtual puf_tx_if host_rx_vif;
 
-		
+	int op_mod = 0 ; 
 
 	// capture response for both norm and debug mode
 	task run();
+		$display("*****************************");
+		$display("*******[HOST_RX_MON]**********");
+		$display("*****************************");
 		forever begin
-			if (host_rx_vif.o_tx_valid) begin  //TBD
+			if (op_mod) begin  //TBD
 				norm_mod();
 			end else begin
 				debug_mod();

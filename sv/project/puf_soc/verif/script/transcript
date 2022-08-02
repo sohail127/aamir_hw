@@ -1,5 +1,5 @@
 # vsim tb_puf_soc_top -voptargs="+acc+tb_puf_soc_top" -sv_seed random -t 1ns 
-# Start time: 20:02:57 on Jul 20,2022
+# Start time: 18:26:09 on Jul 25,2022
 # Loading sv_std.std
 # Loading work.puf_soc_pkg
 # Loading work.tb_puf_soc_top
@@ -18,24 +18,43 @@
 # Loading work.puf_soc_piso
 # Loading work.puf_soc_ro
 # Loading work.puf_soc_ro_not
-# Sv_Seed = 114027347
-add wave -position insertpoint sim:/tb_puf_soc_top/*
-add wave -position insertpoint sim:/tb_puf_soc_top/rx_if/*
-add wave -position insertpoint sim:/tb_puf_soc_top/tx_if/*
-run
+# Sv_Seed = 439939411
+run -a 
+# *****************************
+# *******[HOST_TEST]***********
+# *****************************
+# *****************************
+# *******[HOST_ENV]************
+# *****************************
+# *****************************
+# *******[HOST_TX_AG]**********
+# *****************************
 # *****************************
 # *******[HOST_TX_DRV]*********
 # *****************************
-# ** Fatal: /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/host_rx_mon.sv(11): Illegal virtual interface dereference.
-#    Time: 70 ns  Iteration: 1  Process: /puf_soc_pkg::host_env::run/#FORK#41_f697aeb File: /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/host_rx_mon.sv
-# Fatal error in Task puf_soc_pkg/host_rx_mon::run at /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/host_rx_mon.sv line 11
+# [HOST_TX_DRV]::_____ waiting for transaction from generator
+# *****************************
+# *******[HOST_TX_MON]*******
+# *****************************
+# *****************************
+# *******[HOST_RX_AG]**********
+# *****************************
+# *****************************
+# *******[HOST_RX_MON]**********
+# *****************************
+# ************************_______debug_mod____________************************************
+# *****************************
+# *******[CHALLANGE_GEN]*******
+# *****************************
+# ** Fatal: (vsim-7099) Unable to check out a verification license for the randomize() feature.
+# 
+#    Time: 70 ns  Iteration: 1  Process: /puf_soc_pkg::host_env::run/#FORK#44_f699e29 File: /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/challange_gen.sv Line: 26
+# Fatal error in Task puf_soc_pkg/challange_gen::run at /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/challange_gen.sv line 26
 # 
 # HDL call sequence:
-# Stopped at /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/host_rx_mon.sv 11 Task puf_soc_pkg/host_rx_mon::run
-# called from  /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/host_rx_ag.sv 19 Task puf_soc_pkg/host_rx_ag::run
-# called from  /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/host_env.sv 41 Task puf_soc_pkg/host_env::run
+# Stopped at /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/challange_gen.sv 26 Task puf_soc_pkg/challange_gen::run
+# called from  /home/sohail/Desktop/project/aamir_hw/sv/project/puf_soc/verif/script/../..//verif/tb/host_env.sv 44 Task puf_soc_pkg/host_env::run
 # 
-# Break key hit
-# Break key hit
-# End time: 20:09:43 on Jul 20,2022, Elapsed time: 0:06:46
+q
+# End time: 18:39:01 on Jul 25,2022, Elapsed time: 0:12:52
 # Errors: 1, Warnings: 0

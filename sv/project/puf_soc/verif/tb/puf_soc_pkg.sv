@@ -4,16 +4,17 @@ package puf_soc_pkg;
 //********************************************************************************
 // ** Parameters Declaration
 //********************************************************************************
-	parameter REG_BIT_SIZE = 8  ;
-	parameter MUX_IN_SIZ   = 1  ;
-	parameter MUX_LENGTH   = 16 ;
-	parameter NO_PUF_STAGE = 24 ;
-	parameter PUF_LENGTH   = 16 ;
-	parameter CNT_BIT_SIZE = 5  ;
-	parameter FRAM_SIZE    = 160;
-	parameter NORM_MOD     = 34 ;
-	parameter DEBUG_MOD    = 133;
-	parameter CLK_PRD      = 10 ;
+	parameter REG_BIT_SIZE = 8       ;
+	parameter MUX_IN_SIZ   = 1       ;
+	parameter MUX_LENGTH   = 16      ;
+	parameter NO_PUF_STAGE = 24      ;
+	parameter PUF_LENGTH   = 16      ;
+	parameter CNT_BIT_SIZE = 5       ;
+	parameter FRAM_SIZE    = 160     ;
+	parameter NORM_MOD     = 34      ;
+	parameter DEBUG_MOD    = 133     ;
+	parameter CLK_PRD      = 10      ;
+	parameter XACT_CNT  	 = 10 		 ;
 
 	// config
 	`include  "host_item.sv"

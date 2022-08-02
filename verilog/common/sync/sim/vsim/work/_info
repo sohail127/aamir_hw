@@ -9,48 +9,114 @@ z2
 !i10f 100
 cModel Technology
 Z0 d/home/sohail/Desktop/project/aamir_hw/verilog/common/sync/sim/vsim
-vtb_toggle_sync
-DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1657883315
+vbus_sync
+Z1 !s110 1659005221
 !i10b 1
-!s100 0KRizR45hoM7I?_VQc3bA3
-ISodZE5k;Ma`:1=3=@H4443
-S1
+!s100 ^HFMA=mJd<Nj_84jSJ;I62
+Ia`2GYjM;ggm=C]gVX5dEd2
 R0
-w1657725629
-8../../tb/tb_toggle_sync.sv
-F../../tb/tb_toggle_sync.sv
+w1657811086
+8../../rtl/bus_sync.v
+F../../rtl/bus_sync.v
 !i122 0
-L0 1 143
+L0 1 44
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 Z3 OV;L;2021.1;73
 r1
 !s85 0
 31
-Z4 !s108 1657883315.000000
-!s107 ../../rtl/toggle_sync.v|../../tb/tb_toggle_sync.sv|
-Z5 !s90 -reportprogress|300|-define|ERROR_TEST|../../tb/tb_toggle_sync.sv|../../rtl/toggle_sync.v|
+Z4 !s108 1659005221.000000
+!s107 ../../rtl/bus_sync.v|../../rtl/puls_hnd_shk_sync.v|../../rtl/m_ff_sync.v|../../rtl/dflipflop.v|../../tb/tb_bus_sync.sv|
+Z5 !s90 -reportprogress|300|-define|SLW_TO_FAST|../../tb/tb_bus_sync.sv|../../rtl/dflipflop.v|../../rtl/m_ff_sync.v|../../rtl/puls_hnd_shk_sync.v|../../rtl/bus_sync.v|
 !i113 1
-Z6 o-define ERROR_TEST
+Z6 o-define SLW_TO_FAST
 Z7 tCvgOpt 0
-vtoggle_sync
+vdflipflop
 R1
 !i10b 1
-!s100 m7WOWEQ?j[:a9F0L8OaRP3
-I3HJFAYD^]FPBACIfWQLmh0
+!s100 lD5?`XdEMbA;LOG2PHL]i0
+Ic:;Mk[@iA[>6DCDXM7cY@2
 R0
-w1657645025
-8../../rtl/toggle_sync.v
-F../../rtl/toggle_sync.v
+w1657646034
+8../../rtl/dflipflop.v
+F../../rtl/dflipflop.v
 !i122 0
-L0 1 47
+L0 1 17
 R2
 R3
 r1
 !s85 0
 31
 R4
-Z8 !s107 ../../rtl/toggle_sync.v|../../tb/tb_toggle_sync.sv|
+Z8 !s107 ../../rtl/bus_sync.v|../../rtl/puls_hnd_shk_sync.v|../../rtl/m_ff_sync.v|../../rtl/dflipflop.v|../../tb/tb_bus_sync.sv|
+R5
+!i113 1
+R6
+R7
+vm_ff_sync
+R1
+!i10b 1
+!s100 mToiK8fNf9jV;Xh6^1EVJ1
+IRX=NYLWlIAgYHOVOHVn8^2
+R0
+w1657708271
+8../../rtl/m_ff_sync.v
+F../../rtl/m_ff_sync.v
+!i122 0
+L0 1 26
+R2
+R3
+r1
+!s85 0
+31
+R4
+R8
+R5
+!i113 1
+R6
+R7
+vpuls_hnd_shk_sync
+R1
+!i10b 1
+!s100 l?^EAE3<E]i]0oRA5MPUk2
+Ib_9:ZzFd`N<b?Ak:oz>SI2
+R0
+w1657875211
+8../../rtl/puls_hnd_shk_sync.v
+F../../rtl/puls_hnd_shk_sync.v
+!i122 0
+L0 1 72
+R2
+R3
+r1
+!s85 0
+31
+R4
+R8
+R5
+!i113 1
+R6
+R7
+vtb_bus_sync
+DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+R1
+!i10b 1
+!s100 oTI5>a[_In@NAEj1BTSi_3
+I[ViN?FG0_XMI@`201>fTf1
+S1
+R0
+w1657811785
+8../../tb/tb_bus_sync.sv
+F../../tb/tb_bus_sync.sv
+!i122 0
+L0 1 203
+R2
+R3
+r1
+!s85 0
+31
+R4
+R8
 R5
 !i113 1
 R6

@@ -17,7 +17,21 @@ class challange_gen ;
 		$display("*****************************");
 		$display("*******[CHALLANGE_GEN]*******");
 		$display("*****************************");
+		
+
 		// construct the item class
+		tx_item = new();	
+		
+		// randomize the host_tx_item class
+		if (!(tx_item.randomize())) begin
+			$display("CHALLANGE_GEN::_____ fail to randomize the host_tx_item",);
+		end
+
+		// post randomize
+		tx_item.post_randomize();
+
+		// print the contents of randomize class
+		tx_item.print_hst_item();
 
 		$display("[CHALLANGE_GEN]::_____ Number of challanges generated %d",tx_item.challenge_q.size());
 		// sending all the generated challanges to driver

@@ -8,8 +8,8 @@ class host_env;
 	// host_scb 	 scb	;
 	mailbox gen_mbx;
 
-	virtual puf_rx_if hst_tx_vif;
-	virtual puf_tx_if hst_rx_vif;
+	virtual puf_rx_if host_tx_vif;
+	virtual puf_tx_if host_rx_vif;
 
 	// construct the member classes, mail-boxes
 	function new();
@@ -29,16 +29,19 @@ class host_env;
 
 		// run task
 		virtual task run();
-
+		$display("*****************************");
+		$display("*******[HOST_ENV]************");
+		$display("*****************************");
 			// tx interface handle
-			tx_ag.tx_drv.host_tx_vif = hst_tx_vif;
-			tx_ag.tx_mon.host_tx_vif = hst_tx_vif;
+			tx_ag.host_tx_vif = host_tx_vif;
+			tx_ag.host_tx_vif = host_tx_vif;
 			// rx interface handle
-			rx_ag.host_rx_vif 	= hst_rx_vif;
+			rx_ag.host_rx_vif 	= host_rx_vif;
 
 			fork
 				tx_ag.run();
 				rx_ag.run();
+				gen.run();
 				// scb.new()  ;
 			join_any
 		endtask : run

@@ -10,6 +10,9 @@ class host_test ;
 
 	// task for run
 	task run();
+		$display("*****************************");
+		$display("*******[HOST_TEST]***********");
+		$display("*****************************");
 		env.run();
 	endtask : run
 

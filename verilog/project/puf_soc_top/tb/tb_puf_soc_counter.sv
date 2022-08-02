@@ -19,15 +19,18 @@ module tb_puf_soc_counter ();
 //********************************************************************************
 // ** Parameters here
 //********************************************************************************
-	localparam CNT_BIT_SIZE = 5 ;
+	localparam CNT_BIT_SIZE = 32;
 	localparam CLK_PRD      = 10;
+	int        jj               ;
 
 //********************************************************************************
 // ** All inputs as register
 //********************************************************************************
-	reg clk     ;
-	reg rst_n   ;
-	reg i_cnt_en;
+	reg                    clk      ;
+	reg                    rst_n    ;
+	reg                    i_cnt_en ;
+	reg [CNT_BIT_SIZE-1:0] i_cnt_max;
+	reg                    i_op_mode;
 //********************************************************************************
 // ** All outputs as wires
 //********************************************************************************
@@ -42,6 +45,8 @@ module tb_puf_soc_counter ();
 		.clk       (clk       ), // input                         clk       ,
 		.rst_n     (rst_n     ), // input                         rst_n     ,
 		.i_cnt_en  (i_cnt_en  ), // input                         i_cnt_en  ,
+		.i_cnt_max (i_cnt_max ), // input [CNT_BIT_SIZE-1:0]		  i_cnt_max ,
+		.i_op_mode (i_op_mode ), // input                         i_op_mode ,
 		.o_valid   (o_valid   ), // output reg                    o_valid   ,
 		.o_cnt     (o_cnt     ), // output reg [CNT_BIT_SIZE-1:0] o_cnt     ,
 		.o_cnt_full(o_cnt_full)  // output                        o_cnt_full
@@ -63,6 +68,7 @@ module tb_puf_soc_counter ();
 		$display("**********************************************");
 		rst_n 		= 1'b0;
 		i_cnt_en 	= 1'b0;
+		i_cnt_max = 32'd0;
 		repeat (5) begin
 			@(posedge clk);
 		end
@@ -76,7 +82,8 @@ module tb_puf_soc_counter ();
 		$display("**********************************************");
 		$display("*********Initialization task *****************");
 		$display("**********************************************");
-		i_cnt_en = 1'b1;
+		i_cnt_en  = 1'b1;
+		i_cnt_max = 32'd1024;
 	endtask // init_sys
 
 //********************************************************************************
@@ -85,13 +92,29 @@ module tb_puf_soc_counter ();
 	task mon_count();
 		forever begin
 			@(posedge clk);
-			if (o_cnt_full & o_valid) begin
-				$display("Counter Max value is %d",o_cnt);
-				$display("o_cnt_full valus is %d",o_cnt_full);
-				$stop();
+
+			if( jj== 'd500) begin
+				i_op_mode = 1'b1;
+				i_cnt_en 	= 1'b0;
+			end 
+
+			if (o_valid) begin
+				if (o_cnt_full) begin
+					$display("Counter Max value is :: %0d",o_cnt     );
+					$display("o_cnt_full valus is  :: %0d",o_cnt_full);
+					$display("o_valid is  				 :: %0d",o_valid   );
+					$stop();
+				end else begin
+					$display("Counter Max value is :: %0d",o_cnt     );
+					$display("o_cnt_full valus is  :: %0d",o_cnt_full);
+					$display("o_valid is  				 :: %0d",o_valid   );
+					i_op_mode = 1'b0;
+					i_cnt_en 	= 1'b1;
+				end
 			end else begin
 				$display("Counter value is %d",o_cnt);
 			end
+			jj++;
 		end
 	endtask : mon_count
 //********************************************************************************

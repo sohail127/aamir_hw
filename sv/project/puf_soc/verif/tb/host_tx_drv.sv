@@ -19,8 +19,12 @@ class host_tx_drv;
 			// construct item class
 			host_tx_item = new();
 
+			$display("[HOST_TX_DRV]::_____ waiting for transaction from generator");
+			
 			// get item from mail box send by generator
 			drv_mbx.get(host_tx_item);
+			// print the host_tx_item
+			host_tx_item.print_hst_item();
 			$display("[HOST_TX_DRV]::_____ Number of challanges recieved from generator %d", ++drv_cg_rx_cnt);
 			$display("[HOST_TX_DRV]::_____  challanges recieved from generator 					%d", host_tx_item.challenge);
 

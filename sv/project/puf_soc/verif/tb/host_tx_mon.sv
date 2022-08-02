@@ -9,19 +9,22 @@ class host_tx_mon ;
 	task run();
 		int cg_tx_cnt 	   = 0;
 		int cg_tx_bit_cnt  = 0;
-		bit [7:0] tx_data  = 0; 
+		bit [REG_BIT_SIZE-1:0] tx_data  = 0; 
 		int challenge      =0;
-
+		$display("*****************************");
+		$display("*******[HOST_TX_MON]*******");
+		$display("*****************************");
+		// construct the item class
 		forever begin
-			if (host_tx_vif.i_rx_valid) begin
+			if (host_tx_vif.i_rx_valid && host_tx_vif.o_rx_ready) begin
 				tx_data = {host_tx_vif.i_rx_data,tx_data} ; 
-				$display("[host_tx_mon]::_____ Number of challanges bits transmitted %d", ++cg_tx_bit_cnt );
+				$display("[HOST_TX_MON]::_____ Number of challanges bits transmitted %d", ++cg_tx_bit_cnt );
 				// once whole 8-bits are transmitted
 				if (cg_tx_bit_cnt == REG_BIT_SIZE) begin
 					challenge = tx_data ;  
 					tx_mon_mbx.put(challenge);
 					cg_tx_bit_cnt = 0;
-					$display("[host_tx_mon]::_____ Number of challanges transmitted %d", ++cg_tx_cnt );
+					$display("[HOST_TX_MON]::_____ Number of challanges transmitted %d", ++cg_tx_cnt );
 				end
 			end
 			// wait for postive edge of clock

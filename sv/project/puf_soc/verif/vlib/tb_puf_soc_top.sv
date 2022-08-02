@@ -57,8 +57,8 @@ initial begin
 	test = new () ;
 
 	// connect interface
-	test.env.tx_ag.host_tx_vif 	= rx_if ;
-	test.env.rx_ag.host_rx_vif  = tx_if ;
+	test.env.host_tx_vif 	= rx_if ;
+	test.env.host_rx_vif  = tx_if ;
 
 	// run test
 	test.run();

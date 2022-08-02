@@ -2,7 +2,7 @@ module tb_puf_soc_sipo ();
 //********************************************************************************
 // ** Parameters here
 //********************************************************************************
-	parameter       N_BIT     = 32;
+	parameter       N_BIT     = 40;
 	parameter       CLK_PRD   = 10;
 	reg [N_BIT-1:0] data_buff = 0 ;
 
@@ -92,6 +92,9 @@ module tb_puf_soc_sipo ();
 					$display("________________________________ TEST FAILED ______________________________________");
 					$display("Expected output:______%b  ************* Actual output:_________ %b",data_buff,o_rx_data);
 					$display("***********************************************************************************");
+					repeat(5) begin
+						@(posedge clk);
+					end
 					break;
 				end
 			end

@@ -13,6 +13,9 @@ class host_rx_ag ;
 	
 	// run task
 	virtual task run();
+		$display("*****************************");
+		$display("*******[HOST_RX_AG]**********");
+		$display("*****************************");
 		// connect interface
 		rx_mon.host_rx_vif = host_rx_vif;
 		
