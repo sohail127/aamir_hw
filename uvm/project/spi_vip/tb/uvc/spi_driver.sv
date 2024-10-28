@@ -4,6 +4,7 @@ class spi_driver #(
   `uvm_component_utils(spi_driver)
 
   spi_config spi_cfg;
+  spi_seq_item spi_seq_item_h;
 
   // Constructor
   function new(string name = "spi_driver", uvm_component parent = null);
@@ -19,7 +20,6 @@ class spi_driver #(
   endfunction : build_phase
 
   virtual task main_phase(uvm_phase phase);
-    spi_seq_item spi_seq_item_h;
     super.main_phase(phase);
     forever begin
       seq_item_port.get_next_item(this.spi_seq_item_h);

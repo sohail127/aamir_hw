@@ -1,6 +1,4 @@
-class spi_config #(
-    spi_pkg::spi_param_t P
-) extends uvm_object;
+class spi_config #(spi_pkg::spi_param_t P) extends uvm_object;
 
   bit spi_cov_en;  // spi_cov_en =1 to control coverage
   uvm_active_passive_enum is_active;  // UVM_ACTIVE/UVM_PASSIVE

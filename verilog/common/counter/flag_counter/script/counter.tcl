@@ -7,7 +7,39 @@
 set SOURCE_DIR [pwd]/..
 set work_dir ./flag_project
 file mkdir $work_dir
-file mkdir $SOURCE_DIR/sdf
+
+
+	# creat netlist directory 	
+	if {![file exists rpt]} {
+		file mkdir $SOURCE_DIR/rpt
+	} else {
+		puts "overwriting project netlist directory "
+		file mkdir $SOURCE_DIR/rpt
+	}
+
+	# creat netlist directory 	
+	if {![file exists netlist]} {
+		file mkdir $SOURCE_DIR/netlist
+	} else {
+		puts "overwriting project netlist directory "
+		file mkdir $SOURCE_DIR/netlist
+	}
+
+	# creat sdf directory 	
+	if {![file exists sdf]} {
+		file mkdir $SOURCE_DIR/sdf
+	} else {
+		puts "overwriting project directory sdf"
+		file mkdir $SOURCE_DIR/sdf
+	}
+		# creat bit_stream directory 	
+	if {![file exists bit_stream]} {
+		file mkdir $SOURCE_DIR/bit_stream
+	} else {
+		puts "overwriting project directory sdf"
+		file mkdir $SOURCE_DIR/bit_stream
+	}
+
 ###################################################### 
 ##     2. Creat Project and set board files         ## 
 ######################################################

@@ -3,6 +3,7 @@ class spi_base_sequence#(spi_pkg::spi_param_t P) extends  uvm_sequence#(spi_pkg:
 	`uvm_object_utils(spi_base_sequence)
 	
 	rand int send_item;
+	spi_seq_item item;
 
 	// Constructor
 	function new(string name = "spi_base_sequence");
@@ -10,9 +11,8 @@ class spi_base_sequence#(spi_pkg::spi_param_t P) extends  uvm_sequence#(spi_pkg:
 	endfunction : new
 
 	virtual task body();
-		spi_seq_item item;
 		
-		this.item = spi_seq_item#(P)::type_id::create("item",this);
+		this.item = spi_seq_item#(P)::type_id::create("item");
 
 		for (int i = 0; i < this.send_item; i++) begin
 			this.item.start_item();
